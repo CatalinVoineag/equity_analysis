@@ -1,0 +1,21 @@
+<table>
+  <tr>
+    <th>Millions</th>
+    <% company_financials.years.each do |year| %>
+      <th><%= year %></th>
+    <% end %>
+  </tr>
+
+  <% company_financials.stats.each do |key, value| %>
+    <tr>
+      <td>
+        <%= key.to_s.titlecase %>
+       </td> 
+
+      <% value.ten_ks.last(company_financials.years.count).each do |yearly_unit| %>
+        <td><%= yearly_unit.val %></td>
+      <% end %>
+    </tr>
+  <% end %>
+
+</table>
